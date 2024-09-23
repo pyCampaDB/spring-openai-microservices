@@ -4,6 +4,7 @@ const ImageComponent = ({ prompt, setPrompt, n, setN, imageUrls, setImageUrls, r
 
   const generateImage = async () => {
     try {
+      setImageUrls([]);
       const response = await fetch(`http://localhost:8080/image-service/generate-image-options-ii?prompt=${prompt}&n=${n}`);
       const urls = await response.json();
       setImageUrls(urls);

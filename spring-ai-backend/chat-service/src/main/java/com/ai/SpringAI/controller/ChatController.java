@@ -24,9 +24,10 @@ public class ChatController {
     public String getResponseOptions(
             @RequestParam String prompt,
             @RequestParam(defaultValue = "gpt-4o") String model,
-            @RequestParam(defaultValue = "0.3F") String temperature
+            @RequestParam(defaultValue = "0.3F") String temperature,
+            @RequestParam(defaultValue = "1897") String tokens
     ){
-        return chatService.getResponseOptions(prompt, model, temperature);
+        return chatService.getResponseOptions(prompt, model, temperature, tokens);
     }
 
 }

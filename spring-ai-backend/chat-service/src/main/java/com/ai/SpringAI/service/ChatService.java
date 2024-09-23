@@ -19,14 +19,14 @@ public class ChatService {
         return chatModel.call(prompt);
     }
 
-    public String getResponseOptions(String prompt, String model, String temperature){
+    public String getResponseOptions(String prompt, String model, String temperature, String tokens){
         ChatResponse response = chatModel.call(
             new Prompt(
                     prompt,
                     OpenAiChatOptions.builder()
                             .withModel(model)
                             .withTemperature(Float.valueOf(temperature))
-                            //.withMaxTokens()
+                            .withMaxTokens(Integer.valueOf(tokens))
                             .build()
             )
         );
