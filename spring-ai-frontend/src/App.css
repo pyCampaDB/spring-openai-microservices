@@ -28,7 +28,7 @@ button.active {
   background-color: #007bff;
 }
 
-input {
+input, select {
   padding: 10px;
   width: calc(100% - 22px);
   margin-bottom: 10px;
