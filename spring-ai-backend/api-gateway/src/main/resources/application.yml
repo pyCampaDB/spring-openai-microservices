@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: IMAGE-SERVICE
+          uri: lb://IMAGE-SERVICE
+          predicates:
+            - Path=/image-service/**
+        - id: CHAT-SERVICE
+          uri: lb://CHAT-SERVICE
+          predicates:
+            - Path=/chat-service/**
+        - id: RECIPE-SERVICE
+          uri: lb://RECIPE-SERVICE
+          predicates:
+            - Path=/recipe-service/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

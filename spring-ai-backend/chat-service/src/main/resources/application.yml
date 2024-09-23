@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: CHAT-SERVICE
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+
+server:
+  port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
