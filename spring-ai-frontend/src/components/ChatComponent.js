@@ -28,7 +28,9 @@ const ChatComponent = ({chatPrompt, setChatPrompt, chatResponse, setChatResponse
 
     const inputTemperature = () => {       
         return (
-            <input 
+            <p>
+                <label><b>Temperature: </b></label>
+                <input 
                 type="number"
                 min="0"
                 max="2"
@@ -37,13 +39,16 @@ const ChatComponent = ({chatPrompt, setChatPrompt, chatResponse, setChatResponse
                 onChange={(e) => setTemperature(e.target.value)}
                 onInput={(e) => e.target.blur()}
                 />
+            </p>
             
         );
     }
 
     const inputTokens = () => {       
         return (
-            <input 
+            <p>
+                <label><b>Max Chunks: </b></label>
+                <input 
                 type="number"
                 min="0"
                 max="4096"
@@ -51,25 +56,30 @@ const ChatComponent = ({chatPrompt, setChatPrompt, chatResponse, setChatResponse
                 onChange={(e) => setTokens(e.target.value)}
                 onInput={(e) => e.target.blur()}
                 />
+            </p>
             
         );
     }
 
     const selectModel = () => {
         return(
-            <select value={model} onChange={(e) => setModel(e.target.value)}>
-                {modelList.map((modelName, idx) => (
-                    <option key={idx} value={modelName}>
-                        {modelName}
-                    </option>
-                ))}
-            </select>
+            <p>
+                <label><b>MODEL GPT: </b></label>
+                <select value={model} onChange={(e) => setModel(e.target.value)}>
+                    {modelList.map((modelName, idx) => (
+                        <option key={idx} value={modelName}>
+                            {modelName}
+                        </option>
+                    ))}
+                </select>
+            </p>
         )
     }
 
     const moreOptions = () => {
         setFlag(!flag);
     }
+    
 
     return(
         <div className="tab-content">
@@ -88,6 +98,9 @@ const ChatComponent = ({chatPrompt, setChatPrompt, chatResponse, setChatResponse
             }
             {
                 flag ? inputTokens() : ''
+            }
+            {
+                flag ? '': <div><br/></div>
             }
             <button className="no-tab" onClick={moreOptions}>{flag ? "Hide Filters" : "Show Filters"}</button>
             &nbsp;&nbsp;
