@@ -23,7 +23,7 @@ public class ChatController {
     @GetMapping("/ask-ai-options")
     public String getResponseOptions(
             @RequestParam String prompt,
-            @RequestParam(defaultValue = "gpt-4-o") String model,
+            @RequestParam(defaultValue = "gpt-4o") String model,
             @RequestParam(defaultValue = "0.3F") String temperature
     ){
         return chatService.getResponseOptions(prompt, model, temperature);
